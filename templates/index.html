@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus AI | Intelligent Assistant</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+
+    <!-- 背景场景 -->
+    <div class="bg-scene" aria-hidden="true">
+        <div class="bg-orb bg-orb--1"></div>
+        <div class="bg-orb bg-orb--2"></div>
+        <div class="bg-orb bg-orb--3"></div>
+        <div class="bg-orb bg-orb--4"></div>
+        <div class="bg-orb bg-orb--5"></div>
+        <div class="bg-grid"></div>
+    </div>
+    <div class="bg-noise" aria-hidden="true"></div>
+
+    <!-- 悬浮粒子 -->
+    <div class="particles" aria-hidden="true">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- 主容器 -->
+    <main class="container" role="main">
+
+        <!-- 彩虹顶部条 -->
+        <div class="rainbow-bar" aria-hidden="true"></div>
+
+        <!-- 头部 -->
+        <header class="header">
+            <div class="header-left">
+                <div class="avatar" aria-hidden="true">
+                    <div class="avatar-ring"></div>
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div class="header-info">
+                    <div class="header-title">Nexus AI</div>
+                    <div class="header-status">
+                        <span class="status-dot"></span>
+                        Online &mdash; Ready to assist
+                    </div>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" aria-label="Clear chat" onclick="clearChat()" title="Clear chat">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+                <button class="header-btn" aria-label="More options" title="More options">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 聊天区域 -->
+        <div class="chat-box" id="chat-box" role="log" aria-live="polite" aria-label="Chat messages">
+
+            <div class="welcome-state" id="welcome-state">
+                <div class="welcome-icon-wrap">
+                    <div class="welcome-icon-glow"></div>
+                    <div class="welcome-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                </div>
+                <div class="welcome-title">How can I help you today?</div>
+                <div class="welcome-sub">
+                    I'm your AI assistant, built to help with information, tasks, and conversations. Try a suggestion below or type your own message.
+                </div>
+                <div class="suggestion-grid">
+                    <button class="suggestion-chip" onclick="sendSuggestion(this)">
+                        <i class="fa-solid fa-circle-info"></i>
+                        What can you do?
+                    </button>
+                    <button class="suggestion-chip" onclick="sendSuggestion(this)">
+                        <i class="fa-solid fa-code"></i>
+                        Help me write code
+                    </button>
+                    <button class="suggestion-chip" onclick="sendSuggestion(this)">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        Give me a fun fact
+                    </button>
+                    <button class="suggestion-chip" onclick="sendSuggestion(this)">
+                        <i class="fa-solid fa-list"></i>
+                        Show all commands
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 打字指示器 -->
+        <div class="typing-indicator" id="typing-indicator">
+            <div class="typing-inner">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-label">Nexus is thinking...</span>
+            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="input-area">
+            <div class="input-wrapper">
+                <input
+                    type="text"
+                    id="user-input"
+                    placeholder="Message Nexus AI..."
+                    autocomplete="off"
+                    aria-label="Type your message"
+                >
+                <button class="send-btn" id="send-btn" onclick="sendMessage()" aria-label="Send message" disabled>
+                    <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+            <div class="input-hint">Press <kbd>Enter</kbd> to send &middot; Type <kbd>help</kbd> for commands</div>
+        </div>
+
+    </main>
+
+ <script src="static/script.js"></script>
+
+</body>
+</html>
